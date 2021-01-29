@@ -1,0 +1,513 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh16000\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \'97PART 1.\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM ATTRIBUTE;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM BUSINESS;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM CATEGORY;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM 
+\f1\fs26 \expnd0\expndtw0\kerning0
+ELITE_YEARS
+\f0\fs24 \kerning1\expnd0\expndtw0 ;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM FRIEND;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM HOURS;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM PHOTO;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM REVIEW;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM TIP;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM USER;\
+\
+Select Count (*) AS TOTALRECORDS\
+FROM CHECKIN;\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 \expnd0\expndtw0\kerning0
+\'97i. Attribute table =10000\
+\'97ii. Business table =10000\
+\'97iii. Category table = 10000\
+\'97iv. Checkin table = 10000\
+\'97v. elite_years table = 10000\
+\'97vi. friend table = 10000\
+\'97vii. hours table = 10000\
+\'97viii. photo table = 10000\
+\'97ix. review table = 10000\
+\'97x. tip table = 10000\
+\'97xi. user table = 10000\
+\
+\
+\'97Part 1.2\
+\
+select count(distinct ID)  \
+as total_records\
+from business;\
+\
+select count(distinct Business_ID)  \
+as total_records\
+from hours;\
+\
+select count(distinct Business_ID)  \
+as total_records\
+from category;\
+\
+select count(distinct Business_ID)  \
+as total_records\
+from attribute;\
+\
+select \
+count (distinct Business_ID),\
++Count (distinct ID),\
++Count (distinct User_ID)\
+as total_records\
+from Review; \
+      OR\
+select \
+(count (distinct Business_ID)\
++Count (distinct ID)\
++Count (distinct User_ID))\
+as total_records\
+from Review;\
+\
+select \
+count (distinct Business_ID),\
++Count (distinct User_ID)\
+as total_records\
+from Tip;\
+      OR\
+select \
+(count (distinct Business_ID)\
++Count (distinct User_ID))\
+as total_records\
+from Tip;\
+\
+select \
+count (distinct Business_ID),\
++Count (distinct ID)\
+as total_records\
+from Photo;\
+     OR\
+select \
+(count (distinct Business_ID)\
++Count (distinct ID))\
+as total_records\
+from Photo;\
+\
+select \
+count (distinct Business_ID)\
+as total_records\
+from checkIn;\
+\
+select \
+count (distinct ID)\
+as total_records\
+from User;\
+\
+select \
+count (distinct User_ID)\
+as total_records\
+from Friend;\
+\
+select \
+count (distinct User_ID)\
+as total_records\
+from Elite_Years;\
+\
+\
+   \'97Table_Name        Key                       Total_Records\
+\'97i.   Business     ID                         = 10000\
+\'97ii.  Hours        Business_ID				= 1562\
+\'97iii. Category     Business_ID				= 2643\
+\'97iv.  Attribute    Business_ID				= 1115\
+\'97v.   Review       ID, Business_ID, User_ID	= 27671=(8090+10000+9581)\
+\'97vi.  Checkin      Business_ID				= 493\
+\'97vii. Photo        ID, Business_ID			= 16493=(6493+10000)\
+\'97viii.Tip          User_ID, Business_IDD		= 4516=(3979+537)\
+\'97ix.  User         ID						= 10000\
+\'97x.   Friend       User_ID					= 11\
+\'97xi.  Elite_years  User_ID					= 2780\
+\
+\
+\'97Part 1.3\
+\
+SELECT COUNT(* ) \
+from User\
+		where id is NULL OR\
+			  name is NULL OR\
+			  review_count IS NULL OR\
+			  yelping_since IS NULL OR\
+			  useful IS NULL OR \
+			  funny IS NULL OR \
+			  cool IS NULL OR \
+			  fans IS NULL OR \
+			  average_stars IS NULL OR \
+			  compliment_hot IS NULL OR \
+			  compliment_more IS NULL OR \
+			  compliment_profile IS NULL OR \
+			  compliment_cute IS NULL OR \
+			  compliment_list IS NULL OR \
+			  compliment_note IS NULL OR \
+			  compliment_plain IS NULL OR \
+			  compliment_cool IS NULL OR \
+			  compliment_funny IS NULL OR \
+			  compliment_writer IS NULL OR \
+			  compliment_photos IS NULL;\
+\'97Answer: NO\
+\
+\'97Part 1.4\
+\
+SELECT min(stars), max(stars), avg(stars) \
+from Review;\
+\
+\'97MIN:1\
+\'97MAX:5\
+\'97AVG:
+\f2\fs24 \cf2 \cb3 3.7082\
+\
+SELECT min(stars), max(stars), avg(stars) \
+from Business;\
+
+\f1\fs26 \cf0 \cb1 \
+\'97MIN:1\
+\'97MAX:5\
+\'97AVG:
+\f2\fs24 \cf2 \cb3 3.6549 \
+\
+SELECT min(Likes), max(Likes), avg(Likes) \
+from Tip;\
+
+\f1\fs26 \cf0 \cb1 \
+\'97MIN:0\
+\'97MAX:2\
+\'97AVG:
+\f2\fs24 \cf2 \cb3 0.0144\
+\
+SELECT min(Count), max(Count), avg(Count) \
+from CheckIn;\
+\
+
+\f1\fs26 \cf0 \cb1 \'97MIN:1\
+\'97MAX:53\
+\'97AVG:
+\f2\fs24 \cf2 \cb3 1.9414\
+\
+SELECT min(Review_count), max(Review_count), avg(Review_count) \
+from User;\
+\
+
+\f1\fs26 \cf0 \cb1 \'97MIN:0\
+\'97MAX:2000\
+\'97AVG:
+\f2\fs24 \cf2 \cb3 24.2995 \
+\
+\'97Past 1.5\
+\
+SELECT City, \
+sum (Review_count) as Reviews \
+		From Business\
+		Group By City\
+		Order By Reviews DESC;\
+\
++-----------------+---------+\
+| city            | Reviews |\
++-----------------+---------+\
+| Las Vegas       |   82854 |\
+| Phoenix         |   34503 |\
+| Toronto         |   24113 |\
+| Scottsdale      |   20614 |\
+| Charlotte       |   12523 |\
+| Henderson       |   10871 |\
+| Tempe           |   10504 |\
+| Pittsburgh      |    9798 |\
+| Montr\'e9al        |    9448 |\
+| Chandler        |    8112 |\
+| Mesa            |    6875 |\
+| Gilbert         |    6380 |\
+| Cleveland       |    5593 |\
+| Madison         |    5265 |\
+| Glendale        |    4406 |\
+| Mississauga     |    3814 |\
+| Edinburgh       |    2792 |\
+| Peoria          |    2624 |\
+| North Las Vegas |    2438 |\
+| Markham         |    2352 |\
+| Champaign       |    2029 |\
+| Stuttgart       |    1849 |\
+| Surprise        |    1520 |\
+| Lakewood        |    1465 |\
+| Goodyear        |    1155 |\
++-----------------+---------+\
+(Output limit exceeded, 25 of 362 total rows shown)\
+\
+\'97Part 1.6.i\
+\
+Select Stars, \
+sum(review_count) as count\
+From Business\
+		Where City = 'Avon'\
+	     Group By Stars;\
+\
++-------+-------+\
+| stars | count |\
++-------+-------+\
+|   1.5 |    10 |\
+|   2.5 |     6 |\
+|   3.5 |    88 |\
+|   4.0 |    21 |\
+|   4.5 |    31 |\
+|   5.0 |     3 |\
++-------+-------+\
+\
+\'97Part 1.6.ii\
+\
+\'97The same but instead of \'91Avon\'92 would be \'91Beachwood\'92 \
+\
++-------+-------+\
+| stars | count |\
++-------+-------+\
+|   2.0 |     8 |\
+|   2.5 |     3 |\
+|   3.0 |    11 |\
+|   3.5 |     6 |\
+|   4.0 |    69 |\
+|   4.5 |    17 |\
+|   5.0 |    23 |\
++-------+-------+\
+
+\f1\fs26 \cf0 \cb1 \
+\
+\'97Part 1.7\
+\
+Select Name, Review_count \
+From User\
+Order By Review_count DESC	\
+Limit 3;\
+\
+
+\f2\fs24 \cf2 \cb3 +--------+--------------+\
+| name   | review_count |\
++--------+--------------+\
+| Gerald |         2000 |\
+| Sara   |         1629 |\
+| Yuri   |         1339 |\
++--------+--------------+\
+\
+\'97Part 1.8\
+\
+SELECT Name, Review_count, Fans\
+	FROM User\
+		ORDER BY Fans DESC;\
+\
+\'97Answer: No, it does not correlate because even the reviews amount is 2000 (example with Gerald) fans is 253.\
+\'97In comparison to Amy (reviews amount is 609) fans is 503.\
+\
+\'97Part 1.9\
+\
+Select count(*) as AmounOfHate \
+From Review	\
+Where text LIKE \'91%hate%\'92;\
+\
++-------------+\
+| AmounOfHate |\
++-------------+\
+|         232 |\
++-------------+\
+\
+Select count(*) as AmounOfLove \
+From Review	\
+Where text LIKE \'91%Love%\'92;\
+\
++-------------+\
+| AmounOfLove |\
++-------------+\
+|        1780 |\
++-------------+\
+\
+\'97Answer: There are more reviews with \'91Love\'92 than \'91Hate\'92.\
+\
+\'97Part1.10\
+\
+Select Name,Fans\
+From User \
+Order By Fans DESC\
+Limit 10;\
+\
++-----------+------+\
+| name      | fans |\
++-----------+------+\
+| Amy       |  503 |\
+| Mimi      |  497 |\
+| Harald    |  311 |\
+| Gerald    |  253 |\
+| Christine |  173 |\
+| Lisa      |  159 |\
+| Cat       |  133 |\
+| William   |  126 |\
+| Fran      |  124 |\
+| Lissa     |  120 |\
++-----------+------+\
+\
+\
+\'97Part 2.1\
+\
+SELECT B.Name, C.Category, B.City, B.Postal_code, Stars, hours,\
+B.review_count as reviews,\
+  CASE\
+		 When stars BETWEEN 2 AND 3 THEN '2-3 stars'\
+		 When stars BETWEEN 4 AND 5 THEN '4-5 stars'\
+		      END AS Rating\
+From Business B\
+		Inner join Hours H  ON B.Id = H.Business_Id\
+		Inner join Category C ON C.Business_Id = B.Id\
+Where city = 'Toronto' and category = 'Food' \
+   and rating in ('2-3 stars','4-5 stars')\
+		 Group By name\
+		   Order By stars desc;\
+\
+
+\f1\fs26 \cf0 \cb1 \'97i. Do the two groups you chose to analyze have a different distribution of hours? \
+\'97Answer: Yes they do have different distribution of hours\
+        \'97Loblaws works 
+\f2\fs24 \cf2 \cb3 Saturday|8:00-22:00\
+         \'97Halo Brewery works Saturday|11:00-21:00 \
+         \'97Cabin Fever works Saturday|16:00-2:00
+\f1\fs26 \cf0 \cb1 \
+\
+\
+\'97ii. Do the two groups you chose to analyze have a different number of reviews? \
+\'97Answer: Yes, they do have different number of reviews \
+        Loblaws has 10 number of reviews \
+
+\f2\fs24 \cf2 \cb3          Halo Brewery has 15 
+\f1\fs26 \cf0 \cb1 number of reviews
+\f2\fs24 \cf2 \cb3 \
+         Cabin Fever has 26 
+\f1\fs26 \cf0 \cb1 number of reviews\
+         \
+         \
+\'97iii. Are you able to infer anything from the location data provided between these two groups? Explain. \
+\'97Answer: No, I was not able to infer anything from the location because  all of those food companies are located in different places
+\f2\fs24 \cf2 \cb3 \
+\
+\
+\'97Part 2.2\
+\
+Select\
+  B.Name\
+, B.is_open\
+, C.Category\
+, B.Stars\
+, B.Review_count\
+From (Business B inner join category C on B.id = C.business_id) \
+inner join Hours H on H.business_id = C.business_id\
+Where B.city = 'Toronto' \
+ Group by B.is_open;\
+\
+
+\f1\fs26 \cf0 \cb1 \'97i. Difference 1:\
+\'97Answer: We can see that the 
+\f2\fs24 \cf2 \cb3 99 Cent Sushi is closed and has less reviews in comparison to the Edulis ( 5 VS 89)
+\f1\fs26 \cf0 \cb1 \
+         \
+\'97ii. Difference 2:
+\f2\fs24 \cf2 \cb3 \
+\'97Answer: we can see that 
+\f1\fs26 \cf0 \cb1 the 
+\f2\fs24 \cf2 \cb3 99 Cent Sushi is closed and has less stars in comparison to the Edulis ( 2.0 VS 4.0)\
+\
+\
+\'97Part 2.3\
+\
+\pard\pardeftab720\li0\partightenfactor0
+\cf2 \'97i. The type of the analyses is to identify what business is potentially increasing its popularity and positive reviews and how does it correlate with business hours.\
+\
+\'97ii. It is important to understand whether the business is going to get profit or lose it based on reviews and how people enjoy the specific category of the business. In this research, I pulled up most significant columns that are listed below and I grouped them based on business category in order to see what business is the most stable. In the table below we can see that most productive and well reviewed business are \'93Apartments\'94, \'93Auto repair\'94, \'93Bike repair\'94, and \'93Chiropractors\'94. Moreover, from marketing perspective and analyses I identify that most of well reviewed companies and categories are working the same business hours that means stability and easiness to navigate working hours for customers. As we also noticed, most of the high rated categories and business are located in AZ state that means that \'93YELP\'94 company should target more AZ state and follow \'93same hours rate\'94 for the businesses in order to create profits and standard for the business that will help customers to navigate as well.\
+\pard\pardeftab720\partightenfactor0
+\cf2 +--------------+-------+---------+--------------------------------------+------------+-------+--------------+---------------+-----------------+----------------+--------------+---------------------------------+\
+| review_count | stars | is_open | name                                 | city       | state | monday_hours | tuesday_hours | wednesday_hours | thursday_hours | friday_hours | categories                      |\
++--------------+-------+---------+--------------------------------------+------------+-------+--------------+---------------+-----------------+----------------+--------------+---------------------------------+\
+|            6 |   5.0 |       1 | Camden Fairview                      | Charlotte  | NC    | 9:00-18:00   | 9:00-18:00    | 9:00-18:00      | 9:00-18:00     | 9:00-18:00   | Apartments                      |\
+|            4 |   5.0 |       1 | Buddy's Muffler & Exhaust            | Gastonia   | NC    | 8:30-17:00   | 8:30-17:00    | 8:30-17:00      | 8:30-17:00     | 8:30-17:00   | Auto Repair                     |\
+|            8 |   5.0 |       1 | PRO BIKE+RUN                         | Pittsburgh | PA    | 10:00-20:00  | 10:00-20:00   | 10:00-20:00     | 10:00-20:00    | 10:00-20:00  | Bike Repair/Maintenance         |\
+|            8 |   5.0 |       1 | PRO BIKE+RUN                         | Pittsburgh | PA    | 10:00-20:00  | 10:00-20:00   | 10:00-20:00     | 10:00-20:00    | 10:00-20:00  | Bikes                           |\
+|           19 |   5.0 |       1 | Back-Health Chiropractic             | Phoenix    | AZ    | 14:30-17:00  | 14:00-19:00   | 14:30-17:00     | 14:00-19:00    | 9:00-12:00   | Chiropractors                   |\
+|            5 |   5.0 |       1 | Clean Colonic                        | Tempe      | AZ    | 9:00-17:00   | 9:00-20:00    | 8:00-20:00      | 8:00-20:00     | 8:00-20:00   | Colonics                        |\
+|            4 |   5.0 |       0 | Dollar Mania                         | Chandler   | AZ    | 9:00-20:00   | 9:00-20:00    | 9:00-20:00      | 9:00-20:00     | 9:00-20:00   | Department Stores               |\
+|            4 |   5.0 |       0 | Dollar Mania                         | Chandler   | AZ    | 9:00-20:00   | 9:00-20:00    | 9:00-20:00      | 9:00-20:00     | 9:00-20:00   | Discount Store                  |\
+|            7 |   5.0 |       1 | Springmaster Garage Door Service     | Chandler   | AZ    | 5:00-0:00    | 5:00-0:00     | 5:00-0:00       | 5:00-0:00      | 5:00-0:00    | Door Sales/Installation         |\
+|           11 |   5.0 |       1 | PC Savants                           | Sun City   | AZ    | 10:00-19:00  | 10:00-19:00   | 10:00-19:00     | 10:00-19:00    | 10:00-19:00  | Electronics Repair              |\
+|            4 |   5.0 |       0 | Dollar Mania                         | Chandler   | AZ    | 9:00-20:00   | 9:00-20:00    | 9:00-20:00      | 9:00-20:00     | 9:00-20:00   | Event Planning & Services       |\
+|            4 |   5.0 |       0 | Dollar Mania                         | Chandler   | AZ    | 9:00-20:00   | 9:00-20:00    | 9:00-20:00      | 9:00-20:00     | 9:00-20:00   | Fashion                         |\
+|           17 |   5.0 |       1 | Lifestyles Fitness Personal Training | Tempe      | AZ    | 5:00-21:00   | 5:00-21:00    | 5:00-21:00      | 5:00-21:00     | 5:00-21:00   | Fitness & Instruction           |\
+|            7 |   5.0 |       1 | Springmaster Garage Door Service     | Chandler   | AZ    | 5:00-0:00    | 5:00-0:00     | 5:00-0:00       | 5:00-0:00      | 5:00-0:00    | Garage Door Services            |\
+|           17 |   5.0 |       1 | Lifestyles Fitness Personal Training | Tempe      | AZ    | 5:00-21:00   | 5:00-21:00    | 5:00-21:00      | 5:00-21:00     | 5:00-21:00   | Gyms                            |\
+|            7 |   5.0 |       1 | Motors & More                        | Las Vegas  | NV    | 7:00-17:00   | 7:00-17:00    | 7:00-17:00      | 7:00-17:00     | 7:00-17:00   | Heating & Air Conditioning/HVAC |\
+|            6 |   5.0 |       1 | Camden Fairview                      | Charlotte  | NC    | 9:00-18:00   | 9:00-18:00    | 9:00-18:00      | 9:00-18:00     | 9:00-18:00   | Home Services                   |\
+|           11 |   5.0 |       1 | PC Savants                           | Sun City   | AZ    | 10:00-19:00  | 10:00-19:00   | 10:00-19:00     | 10:00-19:00    | 10:00-19:00  | IT Services & Computer Repair   |\
+|           11 |   5.0 |       1 | PC Savants                           | Sun City   | AZ    | 10:00-19:00  | 10:00-19:00   | 10:00-19:00     | 10:00-19:00    | 10:00-19:00  | Mobile Phone Repair             |\
+|            4 |   5.0 |       0 | Dollar Mania                         | Chandler   | AZ    | 9:00-20:00   | 9:00-20:00    | 9:00-20:00      | 9:00-20:00     | 9:00-20:00   | Party Supplies                  |\
+|            6 |   5.0 |       1 | Camden Fairview                      | Charlotte  | NC    | 9:00-18:00   | 9:00-18:00    | 9:00-18:00      | 9:00-18:00     | 9:00-18:00   | Real Estate                     |\
+|            8 |   5.0 |       1 | PRO BIKE+RUN                         | Pittsburgh | PA    | 10:00-20:00  | 10:00-20:00   | 10:00-20:00     | 10:00-20:00    | 10:00-20:00  | Shoe Stores                     |\
+|            7 |   5.0 |       1 | Motors & More                        | Las Vegas  | NV    | 7:00-17:00   | 7:00-17:00    | 7:00-17:00      | 7:00-17:00     | 7:00-17:00   | Solar Installation              |\
+|            8 |   5.0 |       1 | PRO BIKE+RUN                         | Pittsburgh | PA    | 10:00-20:00  | 10:00-20:00   | 10:00-20:00     | 10:00-20:00    | 10:00-20:00  | Sporting Goods                  |\
+|           17 |   5.0 |       1 | Lifestyles Fitness Personal Training | Tempe      | AZ    | 5:00-21:00   | 5:00-21:00    | 5:00-21:00      | 5:00-21:00     | 5:00-21:00   | Trainers                        |\
++--------------+-------+---------+--------------------------------------+------------+-------+--------------+---------------+-----------------+----------------+--------------+---------------------------------+\
+\
+\
+SELECT \
+	B.review_count,\
+	B.stars,\
+	B.is_open,\
+  B.name,\
+	B.city,\
+	B.state,\
+			   MAX(CASE\
+			   WHEN H.hours LIKE "%monday%" THEN TRIM(H.hours,'%MondayTuesWednesThursFriSatSun|%') \
+			   END) AS monday_hours,\
+			   MAX(CASE\
+			   WHEN H.hours LIKE "%tuesday%" THEN TRIM(H.hours,'%MondayTuesWednesThursFriSatSun|%') \
+			   END) AS tuesday_hours,\
+			   MAX(CASE\
+			   WHEN H.hours LIKE "%wednesday%" THEN TRIM(H.hours,'%MondayTuesWednesThursFriSatSun|%') \
+			   END) AS wednesday_hours,\
+			   MAX(CASE\
+			   WHEN H.hours LIKE "%thursday%" THEN TRIM(H.hours,'%MondayTuesWednesThursFriSatSun|%') \
+			   END) AS thursday_hours,\
+			   MAX(CASE\
+			   WHEN H.hours LIKE "%friday%" THEN TRIM(H.hours,'%MondayTuesWednesThursFriSatSun|%') \
+			   END) AS friday_hours,\
+			   GROUP_CONCAT(DISTINCT(C.category)) AS categories\
+		FROM business B\
+		INNER JOIN hours H\
+		ON B.id = H.business_id\
+		INNER JOIN category C\
+		ON B.id = C.business_id\
+		INNER JOIN attribute A\
+		ON B.id = A.business_id\
+		GROUP BY C.category\
+		Order by B.stars DESC\
+}
